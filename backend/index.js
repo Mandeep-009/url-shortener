@@ -18,7 +18,7 @@ app.get('/:short_code', async (req,res) => {
     try {
         const result = await Code.findOne({coding: short_code})
         if(result){
-            return res.status(200).send(result.url);
+            return res.status(200).send(result);
         }
         return res.status(404).send('no such encoding found')
     } catch (error) {
@@ -30,6 +30,9 @@ app.get('/:short_code', async (req,res) => {
 app.post('/', async (req,res) => {
     const {url,encoding} = req.body;
     try {
+        const existingDoc = await Code.findOne({url});
+        if(existingDoc)
+            return res.status(200).send(existingDoc);
         const result = await Code.create({url,coding:encoding});
         if(result) {
             return res.status(201).send(result);

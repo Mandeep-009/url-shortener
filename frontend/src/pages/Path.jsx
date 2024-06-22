@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Route, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { backendURL } from '../config';
 
 const Path = () => {
-    const backendURL = 'http://localhost:5173';
+    const {code} = useParams();
     const [response,setResponse] = useState('');
-    const [currentPath,setCurrentPath] = useState('');
 
     useEffect(()=>{
-        const fullUrl = window.location.href;
-        const lastSlashIndex = fullUrl.lastIndexOf('/');
-        const code = fullUrl.substring(lastSlashIndex + 1);
-        setCurrentPath(code);
-        console.log(currentPath);
-
         async function fn () {
             try {
-                const result = await axios.get(`${backendURL}/${currentPath}`);
+                const result = await axios.get(`${backendURL}/${code}`);
                 if(result) {
-                    // window.location.href = result.data;
-                    console.log(result.data)
+                    window.location.href = `${result.data.url}`;
+                    console.log(result.data.url)
+                    return;
                 }
             } catch (error) {
                 if(error.response && error.response.data) {
