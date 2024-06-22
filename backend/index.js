@@ -61,3 +61,4 @@ mongoose
     .catch((err)=>{
         console.log('an error occured: ', err)
     })
+export default app;
