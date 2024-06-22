@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const urlSchema = new mongoose.Schema({
     coding : {
@@ -14,4 +14,4 @@ const urlSchema = new mongoose.Schema({
 })
 
 const Code = mongoose.model('short_url',urlSchema);
-module.exports = Code;
+export default Code;

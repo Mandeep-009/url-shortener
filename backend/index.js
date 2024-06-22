@@ -1,8 +1,8 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const {port, mongodb_url} = require('./config');
-const Code = require('./models/url');
+import express from 'express'
+import mongoose from 'mongoose';
+import cors from 'cors';
+import {port,mongodb_url} from './config.js'
+import Code from './models/url.js';
 
 const app = express();
 
@@ -61,5 +61,3 @@ mongoose
     .catch((err)=>{
         console.log('an error occured: ', err)
     })
-
-export default app;

@@ -1,9 +1,7 @@
-const dotenv = require('dotenv');
+import { configDotenv } from "dotenv";
 
 if(process.env.NODE_ENV !== 'production')
-    dotenv.configDotenv();
+    configDotenv();
 
-const port = process.env.PORT || 8000;
-const mongodb_url = process.env.MONGODB_URL;
-
-module.exports = {port,mongodb_url};
+export const port = process.env.PORT || 8000;
+export const mongodb_url = process.env.MONGODB_URL;
