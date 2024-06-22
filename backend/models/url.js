@@ -13,5 +13,5 @@ const urlSchema = new mongoose.Schema({
     }
 })
 
-const short_url = mongoose.model('short_url',urlSchema);
-module.exports = short_url;
+const Code = mongoose.model('short_url',urlSchema);
+module.exports = Code;
