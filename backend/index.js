@@ -52,3 +52,6 @@ mongoose
             console.log('server is listening on port ', port)
         })
     })
+    .catch((err)=>{
+        console.log('an error occured: ', err)
+    })
