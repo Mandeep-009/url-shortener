@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors(
     {
-        origin: ["https://small-url-delta.vercel.app"],
+        origin: ["https://small-url-delta.vercel.app","http://localhost:3000"],
         methods: ["POST", "GET"],
         credentials: true
     }

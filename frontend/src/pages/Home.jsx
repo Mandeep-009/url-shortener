@@ -6,6 +6,7 @@ import { backendURL } from '../config';
 const Home = () => {
     const [output,setOutput] = useState('');
     const [inputUrl,setInputUrl] = useState('');
+    axios.defaults.withCredentials = true;
 
     const btn1handler = async () => {
         let randomString = '';

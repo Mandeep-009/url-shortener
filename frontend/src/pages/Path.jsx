@@ -6,6 +6,7 @@ import { backendURL } from '../config';
 const Path = () => {
     const {code} = useParams();
     const [response,setResponse] = useState('');
+    axios.defaults.withCredentials = true;
 
     useEffect(()=>{
         async function fn () {
