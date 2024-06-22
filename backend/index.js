@@ -7,7 +7,13 @@ const Code = require('./models/url');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://small-url-delta.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 app.get('/', (req,res) => {
     res.send('hello, this is backend server');

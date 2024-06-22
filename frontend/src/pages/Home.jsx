@@ -17,7 +17,7 @@ const Home = () => {
         try {
             const res1 = await axios.post(backendURL,{url:inputUrl,encoding:randomString});
             if(res1) {
-                setOutput(res1.data.coding);
+                setOutput(`https://small-url-delta.vercel.app/${res1.data.coding}`);
             }
         } catch (error) {
             console.log('some error occured while making post request');
@@ -46,7 +46,7 @@ const Home = () => {
             <div>
                 <div>Your short url will appear here 👇</div>
                 <div style={{display: 'flex'}}>
-                    <input className='out01' readOnly value={output} style={{width: '300px', height: '30px', fontSize: '20px', border: '1px solid white', margin: '10px', overflow: 'hidden'}} />
+                    <input className='out01' readOnly value={output} style={{width: '360px', height: '30px', fontSize: '20px', border: '1px solid white', margin: '10px', overflow: 'hidden'}} />
                     <button onClick={copyFn}><img src={copy} height={25} /></button>
                 </div>
             </div>
